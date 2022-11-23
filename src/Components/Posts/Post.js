@@ -5,7 +5,7 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
 
-const Post = ({ post }) => {
+const Post = ({ post, handleDeleteBtn }) => {
   const { id, userId, title, body } = post;
   const [author, setAuthor] = useState({});
   const [authorImg, setAuthorImg] = useState({});
@@ -23,47 +23,61 @@ const Post = ({ post }) => {
       .then((res) => res.json())
       .then((data) => setAuthorImg(data));
   }, []);
-  console.log(authorImg);
+
   const commentsUrl = "https://jsonplaceholder.typicode.com/comments";
   useEffect(() => {
     fetch(commentsUrl)
       .then((res) => res.json())
       .then((data) => setComments(data));
   }, []);
-  return (
-    <Link to={`/${id}`}>
-      <Col>
-        <Card>
-          <Card.Body>
-            <h5>{title.slice(0, 22)}..</h5>
-            <Card.Text>{body.slice(0, 90)}..</Card.Text>
-          </Card.Body>
 
-          <Card.Footer>
-            <div className="footerInfo d-flex">
-              <div className="left">
-                <span className="authorImg">
-                  <img
-                    width={45}
-                    className="rouneded-circle"
-                    src={authorImg.thumbnailUrl}
-                    alt=""
-                  />
-                </span>
-              </div>
-              <div className="right">
-                <p className="ps-2 p-0 m-0">
-                  <b>{author.name}</b>
-                </p>
-                <small className="ps-2 p-0 m-0">
-                  Total Comments: {comments.length}
-                </small>
-              </div>
+  const btnHandler = (id) => {
+    handleDeleteBtn(id);
+  };
+
+  return (
+    <Col>
+      <Card>
+        <Card.Body>
+          <Link to={`/${id}`}>
+            <h5>{title.slice(0, 22)}..</h5>
+          </Link>
+
+          <Card.Text>{body.slice(0, 90)}..</Card.Text>
+        </Card.Body>
+
+        <Card.Footer>
+          <div className="footerInfo d-flex align-items-center">
+            <div className="left">
+              <span className="authorImg">
+                <img
+                  width={45}
+                  className="rouneded-circle"
+                  src={authorImg.thumbnailUrl}
+                  alt=""
+                />
+              </span>
             </div>
-          </Card.Footer>
-        </Card>
-      </Col>
-    </Link>
+            <div className="right">
+              <p className="ps-2 p-0 m-0">
+                <b>{author.name}</b>
+              </p>
+              <small className="ps-2 p-0 m-0">
+                Total Comments: {comments.length}
+              </small>
+            </div>
+            <div className="button ms-5">
+              <button
+                onClick={() => btnHandler(id)}
+                className="btn btn-danger btn-sm"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </Card.Footer>
+      </Card>
+    </Col>
   );
 };
 

@@ -21,3 +21,7 @@ p {
   margin: 4px !important;
   padding: 0px;
 }
+a:hover {
+  text-decoration: underline !important;
+  font-weight: bold;
+}
