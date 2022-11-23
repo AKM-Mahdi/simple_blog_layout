@@ -1,7 +1,7 @@
 import React from "react";
 
 const Comment = ({ comment }) => {
-  console.log(comment);
+  // console.log(comment);
   return (
     <div className="pb-2">
       <div className="card p-2">

@@ -28,7 +28,7 @@ const Post = ({ post, handleDeleteBtn }) => {
   useEffect(() => {
     fetch(commentsUrl)
       .then((res) => res.json())
-      .then((data) => setComments(data));
+      .then((data) => setComments(data.filter((item) => item.postId == id)));
   }, []);
 
   const btnHandler = (id) => {
