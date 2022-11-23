@@ -7,7 +7,7 @@ const Home = () => {
   const posts = useLoaderData().slice(0, 20);
 
   return (
-    <div className="container">
+    <div className="container my-4">
       <Row xs={1} md={3} className="g-4">
         {posts.map((post) => (
           <Post key={post.id} post={post}></Post>

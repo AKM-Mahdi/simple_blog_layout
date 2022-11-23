@@ -2,8 +2,22 @@ a {
   text-decoration: none !important;
   color: black !important;
 }
-
+body {
+  font-family: "Poppins", sans-serif !important;
+}
 /* post card  */
 .authorImg img {
   border-radius: 50px !important;
+}
+h1,
+h2,
+h3,
+h5,
+h5,
+p {
+  text-transform: capitalize;
+}
+p {
+  margin: 4px !important;
+  padding: 0px;
 }
