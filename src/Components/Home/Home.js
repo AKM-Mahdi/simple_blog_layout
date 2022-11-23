@@ -19,7 +19,7 @@ const Home = () => {
 
   return (
     <div className="container my-4">
-      <Row xs={1} md={3} className="g-4">
+      <Row xs={1} lg={3} md={2} className="g-4">
         {posts.map((post) => (
           <Post
             key={post.id}

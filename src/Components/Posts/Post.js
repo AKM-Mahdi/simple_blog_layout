@@ -47,9 +47,9 @@ const Post = ({ post, handleDeleteBtn }) => {
         </Card.Body>
 
         <Card.Footer>
-          <div className="footerInfo d-flex align-items-center">
+          <div className="footerInfo  d-lg-flex d-md-block align-items-center">
             <div className="left">
-              <span className="authorImg">
+              <span className="authorImg ps-2">
                 <img
                   width={45}
                   className="rouneded-circle"
@@ -58,15 +58,15 @@ const Post = ({ post, handleDeleteBtn }) => {
                 />
               </span>
             </div>
-            <div className="right">
-              <p className="ps-2 p-0 m-0">
+            <div className="right me-5">
+              <p className="ps-2 p-0 m-0 ">
                 <b>{author.name}</b>
               </p>
               <small className="ps-2 p-0 m-0">
                 Total Comments: {comments.length}
               </small>
             </div>
-            <div className="button ms-5">
+            <div className="button ps-2 ">
               <button
                 onClick={() => btnHandler(id)}
                 className="btn btn-danger btn-sm"
